@@ -1,16 +1,35 @@
-<!DOCTYPE html>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
 
-    <h:head>   
-        <title>PrimeFaces Test</title>
-    </h:head>
-    <h:body>
-        
-        <h1>#{testView.testString}</h1>
-        
-    </h:body>
+<f:view contentType="text/html">
+	<h:head>
+	</h:head>
+	<h:body>
+
+		<p:dialog id="dialog1" widgetVar="dialog1" dynamic="true">
+			<h:form id="dialog1form">
+				<h:inputHidden id="dialog1input" />
+			</h:form>
+		</p:dialog>
+
+		<p:dialog id="dialog2" widgetVar="dialog2">
+			<h:form id="dialog2form">
+				<h:inputHidden id="dialog2input" />
+			</h:form>
+		</p:dialog>
+
+		<h:form id="mainForm">
+			<h:inputHidden id="mainFormInput" />
+			<p:commandButton id="mainFormButton" value="TEST" process="@this" render="@none"
+				onsuccess="PF('dialog1').show()" />
+		</h:form>
+
+	</h:body>
+</f:view>
+
 </html>
