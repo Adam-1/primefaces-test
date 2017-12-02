@@ -11,22 +11,16 @@
 	</h:head>
 	<h:body>
 
-		<p:dialog id="dialog1" widgetVar="dialog1" dynamic="true">
-			<h:form id="dialog1form">
-				<h:inputHidden id="dialog1input" />
-			</h:form>
-		</p:dialog>
-
-		<p:dialog id="dialog2" widgetVar="dialog2">
-			<h:form id="dialog2form">
-				<h:inputHidden id="dialog2input" />
-			</h:form>
-		</p:dialog>
-
 		<h:form id="mainForm">
-			<h:inputHidden id="mainFormInput" />
-			<p:commandButton id="mainFormButton" value="TEST" process="@this" render="@none"
-				onsuccess="PF('dialog1').show()" />
+	            
+	            <p:commandButton value="Modal" type="button" onclick="PF('dlg2').show();" />
+	            
+	            <p:commandButton value="test" process="@this" update="dialog2" />
+	        
+		        <p:dialog id="dialog2" header="Modal Dialog" widgetVar="dlg2" modal="true" minimizable="true" maximizable="true" height="100">
+		            <h:outputText value="This is a Modal Dialog." />
+		        </p:dialog>
+	        
 		</h:form>
 
 	</h:body>
